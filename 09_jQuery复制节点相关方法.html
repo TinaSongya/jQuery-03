@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09_jQuery复制节点相关方法</title>
+      <script src="jquery-3.1.1.js"></script>
+        <script>
+            $(function (){
+                 //clone([Even[,deepEven]])
+                /*
+                如果传入false就是浅复制：只会复制元素，不会复制元素的事件
+                传入true就是深复制：会复制元素也会复制元素的事件
+                 */
+                $("button").eq(0).click(function (){
+                    //1.浅复制一个元素
+                    var $li=$("li:first").clone(false);
+                    //2,将复制的元素添加到ul中
+                    $("ul").append($li);
+                });
+                $("button").eq(1).click(function (){
+                    //1.深复制一个元素
+                    var $li=$("li:first").clone(true);
+                    //2,将复制的元素添加到ul中
+                    $("ul").append($li);
+
+                });
+                $("li").click(function (){
+                    alert("1");
+                });
+            });
+        </script>
+</head>
+<body>
+<button>浅复制节点</button>
+<button>深复制节点</button>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+    <li>我是第4个li</li>
+    <li>我是第5个li</li>
+</ul>
+
+</body>
+</html>
